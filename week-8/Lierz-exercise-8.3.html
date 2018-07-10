@@ -1,0 +1,114 @@
+<!--
+; Title: Exercise 8.3
+; Author: Professor Krasso
+; Date: 10 July 2018
+; Modified By: Caren Lierz
+; Description: This exercise demonstrates
+; how to use jQuery
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Exercise 8.3</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../site.css">
+
+</head>
+<body>
+
+<h2>Toggle Example</h2>
+<p id="content">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius at arcu eget tincidunt.
+    Donec vitae efficitur lacus. Proin ultrices nulla ac tempus vehicula. Suspendisse et mattis leo,
+    vel ultrices mauris. Nulla sagittis, felis ut vehicula ullamcorper, diam purus euismod justo,
+    eget commodo lacus eros sed odio. Fusce tristique lectus a fringilla convallis. Class aptent
+    taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum ut
+    massa lorem. Aliquam ipsum orci, tincidunt suscipit dignissim a, tincidunt sed ante. Curabitur sed
+    felis felis. Vivamus ornare, orci ut varius vehicula, urna velit posuere velit, ut convallis tortor
+    ligula at sapien. Sed ligula nisl, scelerisque vitae metus eget, vestibulum rhoncus nunc.
+</p>
+
+<p id="toggled-content">
+    Vivamus eleifend nisi ut ex aliquam, quis molestie velit imperdiet. Fusce placerat ligula ac
+    cursus pretium. Etiam eget malesuada mauris, eget efficitur odio. Praesent vehicula et massa a
+    semper. Mauris et aliquam ligula. Nulla facilisi. Suspendisse potenti. Nulla tristique metus urna,
+    vitae vestibulum ante iaculis eu. Sed laoreet mollis sem in laoreet. Duis purus purus, lobortis id tortor ac,
+    tincidunt interdum nisi. Ut volutpat justo nec urna porta, id consequat arcu tincidunt. Integer tincidunt
+    gravida bibendum. Morbi tempor ligula non erat maximus, in convallis lorem euismod. Mauris eu justo a ipsum
+    gravida congue. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+    Mauris blandit efficitur rutrum.
+</p>
+
+<button id="toggle">Toggle Content</button>
+<br>
+<br>
+<br>
+<br>
+
+<table id ="fruit-table">
+
+    <thead>
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            Type
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+
+
+
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#toggle").click(function(){
+            $("#toggled-content").hide();
+        });
+    });
+
+    // create an array of fruits with two fields: id and type
+    var fruits = [
+        {
+            id: 1,
+            type: 'Oranges'
+        },
+        {
+            id: 2,
+            type: 'Apples'
+        },
+        {
+            id: 3,
+            type: 'Pears'
+        },
+        {
+            id: 4,
+            type: 'Limes'
+        },
+        {
+            id: 5,
+            type: 'Lemons'
+        }
+
+    ];
+
+    fruits.forEach(function(fruit) {
+        var fruitRow = "<tr><td><a href='#' id='fruit" + fruit.id + "'>" + fruit.id + "</a></td><td>" + fruit.type + "</td></tr>";
+        $("#fruit-table tbody").append(fruitRow);
+        $("#fruit" + fruit.id).click(function() {
+            alert("{fruit_id: " + fruit.id + ", fruit_type: " + fruit.type + "}");
+            });
+        });
+
+</script>
+</body>
+</html>
